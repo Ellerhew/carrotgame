@@ -90,6 +90,12 @@ function randomSet () {
         carrot.setAttribute("src", "carrot.png")
         carrot.setAttribute("class", "gameChar carrot")
 
+        function randomPosition(gameChar) {
+            let randomY = Math.floor(Math.random()*(ground.offsetHeight-gameChar.height));
+            let randomX = Math.floor(Math.random()*(ground.offsetWidth-gameChar.width));
+            return [randomX, randomY];
+        }
+        
         let xyBug = randomPosition(bug);
         let xyCarrot = randomPosition(carrot);
 
@@ -102,12 +108,6 @@ function randomSet () {
         ground.appendChild(carrot);
     }
     return ground;
-}
-
-function randomPosition(gameChar) {
-    let randomY = Math.floor(Math.random()*(ground.offsetHeight-gameChar.height));
-    let randomX = Math.floor(Math.random()*(ground.offsetWidth-gameChar.width));
-    return [randomX, randomY];
 }
 
 function showAlert(cases) {{
