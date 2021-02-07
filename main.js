@@ -6,8 +6,8 @@ const alert = document.querySelector(".alert");
 const alertMessage = document.querySelector(".alertMessage");
 const counter = document.querySelector(".counter");
 const replayBtn = document.querySelector(".replayBtn");
-const sound_bg = new Audio('sound/bg.mp3');
-const sound_alert = new Audio ("sound/alert.wav");
+const sound_bg = new Audio('bg.mp3');
+const sound_alert = new Audio ("alert.wav");
 const game = () => gameStart();
 
 gameBtn.addEventListener("click", game);
@@ -44,7 +44,7 @@ function timeCountDown () {
     } else if (counter.textContent == 0) {
         clearInterval(interval);
         showAlert('win');
-        const sound_win = new Audio ("sound/game_win.mp3");
+        const sound_win = new Audio ("game_win.mp3");
         sound_win.play();
     }
   }, 1000);
@@ -57,7 +57,7 @@ function timeCountDown () {
 
   function clickClear (e) {
     if (e.target.className == "gameChar bug") {
-        let sound_bug = new Audio ("sound/bug_pull.mp3");
+        let sound_bug = new Audio ("bug_pull.mp3");
         sound_bug.play();
         showAlert('lose');
         clearInterval(interval);
@@ -70,7 +70,7 @@ function timeCountDown () {
 
 function clickCarrot(e) {
     if (e.target.className == "gameChar carrot") {
-        const sound_carrot = new Audio ("sound/carrot_pull.mp3");
+        const sound_carrot = new Audio ("carrot_pull.mp3");
         sound_carrot.play();
         const clickedCarrot = e.target
         console.log(clickedCarrot);
@@ -84,10 +84,10 @@ function randomSet () {
     //return the ground with randomly set bugs and rabbits
     for (let i=0; i < 10; i++) {
         const bug = document.createElement("img")
-        bug.setAttribute("src", "img/bug.png")
+        bug.setAttribute("src", "bug.png")
         bug.setAttribute("class", "gameChar bug")
         const carrot = document.createElement("img")
-        carrot.setAttribute("src", "img/carrot.png")
+        carrot.setAttribute("src", "carrot.png")
         carrot.setAttribute("class", "gameChar carrot")
 
         let xyBug = randomPosition(bug);
